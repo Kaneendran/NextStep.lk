@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>NextStep.lk | Your Trusted resume builder</title>
+    <link rel="icon" href="C:\Users\Kaneendran\Documents\My Creation\NextStep.lk\logo.png" type="image/png">
+    <!-- Google Fonts & Simple CSS Reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('C:\Users\Kaneendran\Documents\My Creation\NextStep.lk\Cover without text.png');
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Main site background subtle pattern + soft gradient (ATS friendly clean look) */
+        .site-wrapper {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f4f9 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #ffffff;
+            padding: 1rem 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #e2e9f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-name-nav {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1f4e7a, #2c6e9e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .tagline-nav {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #5b7a9a;
+            margin-top: 2px;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #2c3e50;
+            transition: 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .nav-links a i {
+            font-size: 1rem;
+            color: #2c6e9e;
+        }
+
+        .nav-links a:hover {
+            color: #1f6392;
+            transform: translateY(-1px);
+        }
+
+        .btn-order-nav {
+            background: #1f4e7a;
+            color: white !important;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .btn-order-nav:hover {
+            background: #0f3b5e;
+            transform: scale(1.02);
+            box-shadow: 0 8px 18px rgba(31,78,122,0.2);
+        }
+
+        /* Hero / Header Section */
+        .hero-header {
+            text-align: center;
+            padding: 3.5rem 2rem 2rem;
+            background: rgba(255,255,255,0.6);
+            border-bottom: 1px solid #e4edf5;
+        }
+
+        .main-heading {
+            font-size: 3.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(125deg, #1f4e7a, #2b7aa2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #3a617f;
+            margin-top: 0.5rem;
+            border-left: 3px solid #2c6e9e;
+            display: inline-block;
+            padding-left: 1rem;
+            background: #eef3fc;
+            padding: 0.5rem 1.5rem;
+            border-radius: 60px;
+        }
+
+        /* Main container: ATS Resume Builder info & demo */
+        .container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 2rem 3rem;
+        }
+
+        /* site background description card (ATS friendly builder) */
+        .info-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef2f8;
+            transition: all 0.2s;
+        }
+
+        .info-card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f4e7a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card p {
+            font-size: 1rem;
+            color: #2c445c;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .badge-ats {
+            background: #eaf5e9;
+            color: #2b6e3c;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eaf0f5;
+            transition: all 0.2s;
+        }
+
+        .feature-item i {
+            font-size: 2.2rem;
+            color: #2c6e9e;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #3f627f;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1f4e7a 0%, #2c6e9e 100%);
+            border-radius: 32px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #1f4e7a;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Footer / developer credit */
+        .footer {
+            background: #fff;
+            border-top: 1px solid #e2e9f0;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: #4c6f8c;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        .developer {
+            font-weight: 700;
+            color: #1f4e7a;
+        }
+        
+        .developer a {
+            color: #1f4e7a;
+            text-decoration: none;
+        }
+        
+        .developer a:hover {
+            text-decoration: underline;
+        }
+
+        /* contact modal simple (contact us dialog) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            animation: fadeUp 0.2s ease;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #6f8eaa;
+        }
+        .contact-info {
+            margin: 1.2rem 0;
+            text-align: left;
+        }
+        .contact-info p {
+            margin: 0.7rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            .main-heading {
+                font-size: 2.2rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .btn-primary {
+            background: #1f4e7a;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #0f3e60;
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrapper">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <span class="site-name-nav">NextStep.lk</span>
+            <span class="tagline-nav">Your career, One Step forward</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" id="contactUsBtn"><i class="fas fa-envelope"></i> Contact us</a>
+            <a href="#" id="orderNowBtn" class="btn-order-nav"><i class="fas fa-file-signature"></i> Order now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <div class="hero-header">
+        <h1 class="main-heading">NextStep.lk</h1>
+        <div class="hero-sub">Your career, One Step forward</div>
+        <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: #2a577b;">Your Trusted Resume Builder — Build your resumes, Impress recruiters.</p>
+    </div>
+
+    <div class="container">
+        <!-- Site background / ATS Resume Builder main description -->
+        <div class="info-card">
+            <p><strong>NextStep.lk</strong> is your friendly and trusted partner to craft resumes to the recruiters table beyond ATS. Our builder uses clean, standard formatting, keyword optimization hints, and a minimalist layout to ensure your resume reaches human eyes. No fancy graphics, no columns that confuse parsers — just pure career impact.</p>
+            <p>✅ Keyword Optimized Resumes &nbsp;|&nbsp; ✅ Clean one-column layouts(Upto User preference) &nbsp;|&nbsp; ✅ Order your realtime ATS friendly resumes</p>
+            <span class="badge-ats"><i class="fas fa-check-circle"></i> 96% ATS compatibility score (tested with major platforms)</span>
+        </div>
+
+        <!-- Feature highlights (static but relevant) -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-file-alt"></i>
+                <h3>ATS Optimized Resumes</h3>
+                <p>No tables, no weird graphics — pure text hierarchy that parsers love.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-keyboard"></i>
+                <h3>Keyword Assistant</h3>
+                <p>Get suggestions to match job descriptions and improve ranking.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>ATS Score detector</h3>
+                <p>Just one click you can check your resume's ATS Scores & improvements strategies.</p>
+            </div>
+        </div>
+        
+        <!-- Call to Action Section -->
+        <div class="cta-section">
+            <h2>Ready to Take the Next Step?</h2>
+            <p>Get your professionally crafted, ATS-friendly resume today and land your dream job.</p>
+            <button id="ctaOrderBtn" class="cta-btn"><i class="fas fa-arrow-right"></i> Order Your Resume Now</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <span>© 2026 NextStep.lk — Your career, One Step forward. </span><br/>
+        <span>Site Developer: <span class="developer"><a href="mailto:kaneendrank.official@gmail.com">InnoWaytion Solutions</a></span></span>
+    </footer>
+</div>
+
+<!-- Modal for Contact Us -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <i class="fas fa-headset" style="font-size: 2.2rem; color: #1f4e7a;"></i>
+        <h2 style="margin: 0.5rem 0;">Contact NextStep.lk</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope" style="width: 28px;"></i> Nextstep.ai.lk@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +94 76 606 4067</p>
+            <p><i class="fab fa-whatsapp"></i> +94 76 606 4067 (WhatsApp)</p>
+            <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM – 6:00 PM (IST)</p>
+            <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+        </div>
+        <button class="btn-primary" id="closeModalInnerBtn" style="margin-top: 10px;">Close</button>
+    </div>
+</div>
+
+<!-- Order now modal / simple prompt that shows contact/order info -->
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeOrderModalBtn">&times;</span>
+        <i class="fas fa-file-invoice-dollar" style="font-size: 2rem; color:#2a6b46;"></i>
+        <h2 style="margin: 0.5rem 0;">Order Your ATS Resume</h2>
+        <p>Get a professional, ATS-optimized resumes. Starting from very affordable prices.</p>
+        <p>📩 Email: <strong>Nextstep.ai.lk@gmail.com</strong> <br/> 📞 Call us: <strong>076 606 4067</strong></p><br/>
+        <button class="btn-primary" id="closeOrderInnerBtn" style="background:#1f4e7a;"><a href="https://forms.gle/z5M9e8i16PMgQdpUA" style="color: white; text-decoration: none;">Request an order</a></button>
+        <button class="btn-primary" id="closeOrderModalInnerClose" style="background:#9aaebf; margin-left: 0.5rem;">Close</button>
+    </div>
+</div>
+
+<script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // ----- Modal functionality: Contact Us & Order Now -----
+        const contactModal = document.getElementById('contactModal');
+        const orderModal = document.getElementById('orderModal');
+
+        // Get all navigation and button elements
+        const contactBtn = document.getElementById('contactUsBtn');
+        const orderNavBtn = document.getElementById('orderNowBtn');
+        const ctaOrderBtn = document.getElementById('ctaOrderBtn');
+
+        // Helper functions for modals
+        function openModal(modal) {
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModalFunc(modal) {
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Contact Us button handler (navigation)
+        if (contactBtn) {
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal(contactModal);
+            });
+        }
+
+        // Order Now button handler (top navigation)
+        if (orderNavBtn) {
+            orderNavBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal(orderModal);
+            });
+        }
+
+        // CTA Order button handler
+        if (ctaOrderBtn) {
+            ctaOrderBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal(orderModal);
+            });
+        }
+
+        // Close contact modal handlers
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const closeModalInnerBtn = document.getElementById('closeModalInnerBtn');
+        
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', function() {
+                closeModalFunc(contactModal);
+            });
+        }
+        
+        if (closeModalInnerBtn) {
+            closeModalInnerBtn.addEventListener('click', function() {
+                closeModalFunc(contactModal);
+            });
+        }
+        
+        // Close order modal handlers
+        const closeOrderModalBtn = document.getElementById('closeOrderModalBtn');
+        const closeOrderInnerBtn = document.getElementById('closeOrderInnerBtn');
+        const closeOrderModalInnerClose = document.getElementById('closeOrderModalInnerClose');
+        
+        if (closeOrderModalBtn) {
+            closeOrderModalBtn.addEventListener('click', function() {
+                closeModalFunc(orderModal);
+            });
+        }
+        
+        if (closeOrderInnerBtn) {
+            closeOrderInnerBtn.addEventListener('click', function() {
+                closeModalFunc(orderModal);
+            });
+        }
+        
+        if (closeOrderModalInnerClose) {
+            closeOrderModalInnerClose.addEventListener('click', function() {
+                closeModalFunc(orderModal);
+            });
+        }
+
+        // Close modals if clicking outside the modal content
+        window.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                closeModalFunc(contactModal);
+            }
+            if (e.target === orderModal) {
+                closeModalFunc(orderModal);
+            }
+        });
+        
+        // Handle escape key to close modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (contactModal && contactModal.style.display === 'flex') {
+                    closeModalFunc(contactModal);
+                }
+                if (orderModal && orderModal.style.display === 'flex') {
+                    closeModalFunc(orderModal);
+                }
+            }
+        });
+        
+        console.log("NextStep.lk ATS Resume Builder — How It Works and Choose Your Plan Removed | Navigation Buttons Working | Developed by Kaneendran K");
+    });
+</script>
+</body>
+</html>
