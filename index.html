@@ -113,11 +113,11 @@
             box-shadow: 0 8px 18px rgba(31,78,122,0.2);
         }
 
-        /* Hero / Header Section */
+        /* Hero / Header Section - INVERTED: background and text colors only */
         .hero-header {
             text-align: center;
             padding: 3.5rem 2rem 2rem;
-            background: rgba(255,255,255,0.6);
+            background: #1a2c3e;
             border-bottom: 1px solid #e4edf5;
         }
 
@@ -125,7 +125,7 @@
             font-size: 3.4rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(125deg, #1f4e7a, #2b7aa2);
+            background: linear-gradient(125deg, #ffffff, #e0f0ff);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -134,12 +134,12 @@
         .hero-sub {
             font-size: 1.25rem;
             font-weight: 500;
-            color: #3a617f;
+            color: #e8f0fe;
             margin-top: 0.5rem;
-            border-left: 3px solid #2c6e9e;
+            border-left: 3px solid #6ea8d4;
             display: inline-block;
             padding-left: 1rem;
-            background: #eef3fc;
+            background: #2c4a6e;
             padding: 0.5rem 1.5rem;
             border-radius: 60px;
         }
@@ -374,6 +374,11 @@
             background: #0f3e60;
             transform: scale(0.98);
         }
+        
+        /* Hero header paragraph text color override for visibility */
+        .hero-header p {
+            color: #d4e6ff;
+        }
     </style>
 </head>
 <body>
@@ -390,12 +395,11 @@
         </div>
     </nav>
 
-    <!-- Hero Header -->
-   <body style="background-color: #2b7aa2;"/>
+    <!-- Hero Header - INVERTED BACKGROUND AND TEXT COLORS ONLY -->
     <div class="hero-header">
-        <h1 class="main-heading"style="background-color: #FFFFFF; padding: 10px 20px;">NextStep.lk</h1>
+        <h1 class="main-heading">NextStep.lk</h1>
         <div class="hero-sub">Your career, One Step forward</div>
-        <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: #2a577b;">Your Trusted Resume Builder — Build your resumes, Impress recruiters.</p>
+        <p style="margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Your Trusted Resume Builder — Build your resumes, Impress recruiters.</p>
     </div>
 
     <div class="container">
